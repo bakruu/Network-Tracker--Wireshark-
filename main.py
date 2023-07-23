@@ -5,7 +5,6 @@ import pygeoip
 gi = pygeoip.GeoIP('GeoLiteCity.dat')
 
 
-
 def main():
     f = open('wireshark_geotest.pcap', 'rb')
     pcap = dpkt.pcap.Reader(f)
@@ -20,8 +19,6 @@ def main():
     kmldoc=kmlheader+plotIPs(pcap)+kmlfooter
     print(kmldoc)
 
-
-
 def plotIPs(pcap):
     kmlPts = ''
     for (ts, buf) in pcap:
@@ -35,9 +32,6 @@ def plotIPs(pcap):
         except:
             pass
     return kmlPts
-
-
-
 
 def retKML(dstip, srcip):
     dst = gi.record_by_name(dstip)
